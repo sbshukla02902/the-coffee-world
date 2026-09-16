@@ -1,0 +1,2280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>☕ Brew & Beans Café</title>
+
+<style>
+
+/* ==============================
+   BASIC
+================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia, "Times New Roman", serif;
+    background:#fffaf3;
+    color:#3e2723;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+
+/* ==============================
+   TOP BAR
+================================= */
+
+.topbar{
+    background:#2b1812;
+    color:#f5dfc5;
+    text-align:center;
+    padding:9px;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+
+/* ==============================
+   NAVBAR
+================================= */
+
+.navbar{
+    background:#fffaf3;
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(70,40,20,.12);
+}
+
+.logo{
+    font-size:27px;
+    font-weight:bold;
+    color:#5d321f;
+}
+
+.logo span{
+    color:#b87942;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#3e2723;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#b87942;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.nav-buttons button{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:#ead8c4;
+    color:#4e2c20;
+    font-size:17px;
+}
+
+.nav-buttons button:hover{
+    background:#b87942;
+    color:white;
+}
+
+
+/* ==============================
+   HERO
+================================= */
+
+.hero{
+    min-height:620px;
+    background:
+    linear-gradient(
+        rgba(35,20,15,.45),
+        rgba(35,20,15,.45)
+    ),
+    url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1600&q=85");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+    color:white;
+}
+
+.hero-content{
+    max-width:750px;
+    padding:30px;
+}
+
+.hero-small{
+    letter-spacing:4px;
+    font-size:14px;
+    color:#f5d6b5;
+}
+
+.hero h1{
+    font-size:70px;
+    margin:20px 0;
+}
+
+.hero h1 span{
+    color:#e7b77f;
+}
+
+.hero p{
+    font-size:19px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn-primary{
+    background:#b87942;
+    color:white;
+    border:none;
+    padding:14px 28px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.btn-primary:hover{
+    background:#8e582e;
+}
+
+.btn-outline{
+    background:transparent;
+    color:white;
+    border:2px solid white;
+    padding:12px 27px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:#4e2c20;
+}
+
+
+/* ==============================
+   COMMON SECTION
+================================= */
+
+.section{
+    padding:80px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title small{
+    color:#b87942;
+    letter-spacing:3px;
+    font-weight:bold;
+}
+
+.section-title h2{
+    font-size:40px;
+    margin-top:10px;
+    color:#3e2723;
+}
+
+.section-title p{
+    color:#80695d;
+    margin-top:10px;
+}
+
+
+/* ==============================
+   FEATURES
+================================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    background:#fff;
+    margin:-35px 7% 0;
+    position:relative;
+    z-index:5;
+    border-radius:15px;
+    box-shadow:0 5px 25px rgba(50,30,20,.12);
+    padding:30px;
+}
+
+.feature{
+    text-align:center;
+    padding:15px;
+    border-right:1px solid #eadfd7;
+}
+
+.feature:last-child{
+    border:none;
+}
+
+.feature-icon{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.feature h3{
+    font-size:17px;
+}
+
+.feature p{
+    color:#8b7569;
+    font-size:13px;
+    margin-top:5px;
+}
+
+
+/* ==============================
+   CATEGORY
+================================= */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.category{
+    height:260px;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+}
+
+.category img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.category:hover img{
+    transform:scale(1.08);
+}
+
+.category-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        transparent,
+        rgba(40,20,10,.85)
+    );
+
+    display:flex;
+    align-items:flex-end;
+    padding:22px;
+}
+
+.category-overlay h3{
+    color:white;
+    font-size:23px;
+}
+
+
+/* ==============================
+   MENU
+================================= */
+
+.menu-section{
+    background:#f4eadf;
+}
+
+.menu-tabs{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.menu-tabs button{
+    padding:11px 22px;
+    border:1px solid #c9aa91;
+    background:white;
+    color:#5d321f;
+    border-radius:25px;
+}
+
+.menu-tabs button:hover{
+    background:#5d321f;
+    color:white;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.menu-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(60,30,15,.08);
+    transition:.3s;
+}
+
+.menu-card:hover{
+    transform:translateY(-6px);
+}
+
+.menu-image{
+    height:230px;
+    position:relative;
+    overflow:hidden;
+}
+
+.menu-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.menu-card:hover .menu-image img{
+    transform:scale(1.06);
+}
+
+.popular{
+    position:absolute;
+    left:12px;
+    top:12px;
+    background:#b87942;
+    color:white;
+    padding:6px 10px;
+    border-radius:5px;
+    font-size:11px;
+}
+
+.menu-info{
+    padding:18px;
+}
+
+.menu-info h3{
+    font-size:21px;
+}
+
+.menu-info p{
+    color:#80695d;
+    line-height:1.5;
+    font-size:14px;
+    margin:8px 0;
+}
+
+.menu-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.menu-price{
+    color:#9b5e2f;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.order-btn{
+    border:none;
+    background:#5d321f;
+    color:white;
+    padding:9px 14px;
+    border-radius:20px;
+}
+
+.order-btn:hover{
+    background:#b87942;
+}
+
+
+/* ==============================
+   ABOUT
+================================= */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.about-image img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:15px 15px 0 #ead3bd;
+}
+
+.about-text small{
+    color:#b87942;
+    letter-spacing:3px;
+    font-weight:bold;
+}
+
+.about-text h2{
+    font-size:40px;
+    margin:15px 0;
+}
+
+.about-text p{
+    color:#715c50;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.about-list{
+    margin:20px 0;
+    list-style:none;
+}
+
+.about-list li{
+    margin:10px 0;
+}
+
+
+/* ==============================
+   GALLERY
+================================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:200px;
+    gap:12px;
+}
+
+.gallery img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:12px;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+.gallery img:nth-child(1){
+    grid-row:span 2;
+}
+
+.gallery img:nth-child(4){
+    grid-column:span 2;
+}
+
+
+/* ==============================
+   REVIEWS
+================================= */
+
+.reviews{
+    background:#f4eadf;
+}
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.review{
+    background:white;
+    padding:28px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(60,30,15,.08);
+}
+
+.review-stars{
+    color:#c4864d;
+    margin-bottom:15px;
+}
+
+.review p{
+    color:#6f5b50;
+    line-height:1.7;
+    font-style:italic;
+}
+
+.review h4{
+    margin-top:18px;
+}
+
+
+/* ==============================
+   RESERVATION
+================================= */
+
+.reservation{
+    background:
+    linear-gradient(
+        rgba(50,25,15,.78),
+        rgba(50,25,15,.78)
+    ),
+    url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+.reservation-box{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.reservation-box h2{
+    font-size:42px;
+    margin:15px 0;
+}
+
+.reservation-box p{
+    color:#ead7c5;
+    line-height:1.7;
+}
+
+.reservation-form{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.reservation-form input,
+.reservation-form select{
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+}
+
+.reservation-form button{
+    grid-column:1/-1;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:#b87942;
+    color:white;
+    font-weight:bold;
+}
+
+
+/* ==============================
+   CONTACT
+================================= */
+
+.contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.contact-info h2{
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+.contact-item{
+    margin:20px 0;
+}
+
+.contact-item h3{
+    color:#9b5e2f;
+    margin-bottom:5px;
+}
+
+.contact-item p{
+    color:#80695d;
+}
+
+.contact-form{
+    background:#f4eadf;
+    padding:30px;
+    border-radius:15px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:13px;
+    margin-bottom:13px;
+    border:1px solid #d8c7b9;
+    border-radius:8px;
+    outline:none;
+}
+
+.contact-form textarea{
+    height:130px;
+    resize:none;
+}
+
+.contact-form button{
+    width:100%;
+    padding:13px;
+    background:#5d321f;
+    color:white;
+    border:none;
+    border-radius:25px;
+}
+
+
+/* ==============================
+   CART
+================================= */
+
+.cart-panel{
+    position:fixed;
+    top:0;
+    right:-430px;
+    width:410px;
+    max-width:100%;
+    height:100vh;
+    background:#fffaf3;
+    z-index:3000;
+    box-shadow:-5px 0 25px rgba(0,0,0,.2);
+    transition:.4s;
+    padding:25px;
+    overflow:auto;
+}
+
+.cart-panel.open{
+    right:0;
+}
+
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:18px;
+    border-bottom:1px solid #ddd;
+}
+
+.cart-header button{
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+}
+
+.cart-item{
+    display:flex;
+    gap:12px;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.cart-info{
+    flex:1;
+}
+
+.cart-info h4{
+    margin-bottom:7px;
+}
+
+.cart-info p{
+    color:#a46132;
+    font-weight:bold;
+}
+
+.cart-remove{
+    border:none;
+    background:none;
+    color:#9d3b2e;
+    font-size:18px;
+}
+
+.cart-total{
+    border-top:2px solid #ddd;
+    margin-top:20px;
+    padding-top:20px;
+}
+
+.cart-total h2{
+    margin-bottom:15px;
+}
+
+.checkout-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:25px;
+    background:#5d321f;
+    color:white;
+    font-weight:bold;
+}
+
+
+/* ==============================
+   FOOTER
+================================= */
+
+footer{
+    background:#2b1812;
+    color:white;
+    padding:60px 7% 20px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-col h2{
+    color:#e7b77f;
+    margin-bottom:15px;
+}
+
+.footer-col h3{
+    margin-bottom:18px;
+}
+
+.footer-col p{
+    color:#cdb9aa;
+    line-height:1.7;
+    font-size:14px;
+}
+
+.footer-col a{
+    display:block;
+    color:#cdb9aa;
+    text-decoration:none;
+    margin:10px 0;
+}
+
+.footer-col a:hover{
+    color:#e7b77f;
+}
+
+.social{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+}
+
+.social span{
+    width:35px;
+    height:35px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#43271d;
+}
+
+.footer-bottom{
+    border-top:1px solid #51362a;
+    margin-top:40px;
+    padding-top:20px;
+    text-align:center;
+    color:#90786b;
+    font-size:13px;
+}
+
+
+/* ==============================
+   TOAST
+================================= */
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#2b1812;
+    color:white;
+    padding:13px 25px;
+    border-radius:30px;
+    display:none;
+    z-index:5000;
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================= */
+
+@media(max-width:1000px){
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .menu-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .features{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .feature{
+        border:none;
+    }
+
+    .footer-grid{
+        grid-template-columns:2fr 1fr 1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero{
+        min-height:550px;
+    }
+
+    .features{
+        margin:-20px 5% 0;
+    }
+
+    .about,
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+    .menu-grid{
+        grid-template-columns:1fr;
+    }
+
+    .review-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .gallery img:nth-child(1),
+    .gallery img:nth-child(4){
+        grid-row:auto;
+        grid-column:auto;
+    }
+
+    .reservation-form{
+        grid-template-columns:1fr;
+    }
+
+    .reservation-form button{
+        grid-column:auto;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .categories{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .social{
+        justify-content:center;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==============================
+     TOP BAR
+================================= -->
+
+<div class="topbar">
+
+☕ FRESHLY BREWED EVERY DAY &nbsp; | &nbsp;
+FREE DESSERT ON ORDERS ABOVE ₹999 🍰
+
+</div>
+
+
+<!-- ==============================
+     NAVBAR
+================================= -->
+
+<nav class="navbar">
+
+<div class="logo">
+☕ Brew <span>&</span> Beans
+</div>
+
+<ul class="nav-links">
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#menu">Menu</a></li>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#gallery">Gallery</a></li>
+
+<li><a href="#reviews">Reviews</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="nav-buttons">
+
+<button onclick="openCart()">🛒</button>
+
+</div>
+
+</nav>
+
+
+<!-- ==============================
+     HERO
+================================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="hero-small">
+WELCOME TO BREW & BEANS
+</div>
+
+<h1>
+Life Begins After <span>Coffee</span> ☕
+</h1>
+
+<p>
+Freshly roasted coffee, delicious food and
+a cozy place to slow down, relax and enjoy
+every little moment.
+</p>
+
+<div class="hero-buttons">
+
+<button
+class="btn-primary"
+onclick="document.getElementById('menu').scrollIntoView()">
+
+EXPLORE MENU
+
+</button>
+
+<button
+class="btn-outline"
+onclick="document.getElementById('reservation').scrollIntoView()">
+
+BOOK A TABLE
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     FEATURES
+================================= -->
+
+<div class="features">
+
+<div class="feature">
+
+<div class="feature-icon">☕</div>
+
+<h3>Fresh Coffee</h3>
+
+<p>Premium roasted beans</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🥐</div>
+
+<h3>Fresh Food</h3>
+
+<p>Made fresh every day</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🌿</div>
+
+<h3>Cozy Ambience</h3>
+
+<p>Relax & enjoy your time</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">❤️</div>
+
+<h3>Made With Love</h3>
+
+<p>Served with a smile</p>
+
+</div>
+
+</div>
+
+
+<!-- ==============================
+     CATEGORIES
+================================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+<small>OUR SPECIALITIES</small>
+
+<h2>Something For Everyone</h2>
+
+<p>Pick your favourite and enjoy the perfect café experience.</p>
+
+</div>
+
+
+<div class="categories">
+
+
+<div class="category"
+onclick="filterMenu('Coffee')">
+
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80">
+
+<div class="category-overlay">
+
+<h3>☕ Coffee</h3>
+
+</div>
+
+</div>
+
+
+<div class="category"
+onclick="filterMenu('Food')">
+
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80">
+
+<div class="category-overlay">
+
+<h3>🍕 Food</h3>
+
+</div>
+
+</div>
+
+
+<div class="category"
+onclick="filterMenu('Dessert')">
+
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80">
+
+<div class="category-overlay">
+
+<h3>🍰 Desserts</h3>
+
+</div>
+
+</div>
+
+
+<div class="category"
+onclick="filterMenu('Snacks')">
+
+<img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80">
+
+<div class="category-overlay">
+
+<h3>🥐 Snacks</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     MENU
+================================= -->
+
+<section class="section menu-section" id="menu">
+
+<div class="section-title">
+
+<small>OUR MENU</small>
+
+<h2>Popular Favourites</h2>
+
+<p>Freshly prepared just for you.</p>
+
+</div>
+
+
+<div class="menu-tabs">
+
+<button onclick="filterMenu('All')">
+All
+</button>
+
+<button onclick="filterMenu('Coffee')">
+☕ Coffee
+</button>
+
+<button onclick="filterMenu('Food')">
+🍕 Food
+</button>
+
+<button onclick="filterMenu('Dessert')">
+🍰 Dessert
+</button>
+
+<button onclick="filterMenu('Snacks')">
+🥐 Snacks
+</button>
+
+</div>
+
+
+<div id="menuGrid" class="menu-grid"></div>
+
+</section>
+
+
+<!-- ==============================
+     ABOUT
+================================= -->
+
+<section class="section" id="about">
+
+<div class="about">
+
+<div class="about-image">
+
+<img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=80">
+
+</div>
+
+
+<div class="about-text">
+
+<small>OUR STORY</small>
+
+<h2>More Than Just A Café ☕</h2>
+
+<p>
+Brew & Beans started with a simple dream —
+to create a warm place where people could enjoy
+great coffee, delicious food and good conversations.
+</p>
+
+<p>
+Every cup is carefully prepared using quality
+coffee beans and every dish is made with fresh
+ingredients.
+</p>
+
+<ul class="about-list">
+
+<li>☕ Premium Coffee Beans</li>
+
+<li>🥗 Fresh Ingredients</li>
+
+<li>👨‍🍳 Experienced Chefs</li>
+
+<li>❤️ Warm & Friendly Service</li>
+
+</ul>
+
+<button
+class="btn-primary"
+onclick="document.getElementById('contact').scrollIntoView()">
+
+VISIT US
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     GALLERY
+================================= -->
+
+<section class="section" id="gallery">
+
+<div class="section-title">
+
+<small>OUR SPACE</small>
+
+<h2>Inside Brew & Beans 📸</h2>
+
+<p>A little glimpse of our café.</p>
+
+</div>
+
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80">
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     REVIEWS
+================================= -->
+
+<section class="section reviews" id="reviews">
+
+<div class="section-title">
+
+<small>WHAT PEOPLE SAY</small>
+
+<h2>Happy Customers ❤️</h2>
+
+</div>
+
+
+<div class="review-grid">
+
+
+<div class="review">
+
+<div class="review-stars">
+★★★★★
+</div>
+
+<p>
+"Beautiful ambience, amazing coffee and
+the staff is extremely friendly. Perfect
+place to spend an evening."
+</p>
+
+<h4>— Ananya</h4>
+
+</div>
+
+
+<div class="review">
+
+<div class="review-stars">
+★★★★★
+</div>
+
+<p>
+"The cappuccino was amazing and the
+chocolate cake was absolutely delicious.
+Definitely coming back!"
+</p>
+
+<h4>— Rahul</h4>
+
+</div>
+
+
+<div class="review">
+
+<div class="review-stars">
+★★★★★
+</div>
+
+<p>
+"Such a cozy café! Great food, peaceful
+environment and very good service."
+</p>
+
+<h4>— Priya</h4>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     RESERVATION
+================================= -->
+
+<section class="section reservation" id="reservation">
+
+<div class="reservation-box">
+
+<small>RESERVE YOUR TABLE</small>
+
+<h2>Let's Make It Special ☕</h2>
+
+<p>
+Planning a date, birthday, meeting or just
+a relaxing coffee? Reserve your table with us.
+</p>
+
+
+<div class="reservation-form">
+
+<input
+type="text"
+id="bookingName"
+placeholder="Your Name">
+
+
+<input
+type="tel"
+id="bookingPhone"
+placeholder="Phone Number">
+
+
+<input
+type="date"
+id="bookingDate">
+
+
+<select id="bookingTime">
+
+<option value="">
+Select Time
+</option>
+
+<option>10:00 AM</option>
+<option>12:00 PM</option>
+<option>2:00 PM</option>
+<option>4:00 PM</option>
+<option>6:00 PM</option>
+<option>8:00 PM</option>
+
+</select>
+
+
+<select id="bookingGuests">
+
+<option value="">
+Guests
+</option>
+
+<option>1 Person</option>
+<option>2 People</option>
+<option>3 People</option>
+<option>4 People</option>
+<option>5+ People</option>
+
+</select>
+
+
+<button onclick="bookTable()">
+
+☕ RESERVE TABLE
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     CONTACT
+================================= -->
+
+<section class="section" id="contact">
+
+<div class="contact">
+
+
+<div class="contact-info">
+
+<h2>Come Say Hello 👋</h2>
+
+<p style="color:#80695d;line-height:1.7;">
+We'd love to see you at Brew & Beans.
+Drop by for your favourite coffee,
+a delicious meal or simply a good conversation.
+</p>
+
+
+<div class="contact-item">
+
+<h3>📍 Address</h3>
+
+<p>123 Coffee Street, Mumbai, Maharashtra</p>
+
+</div>
+
+
+<div class="contact-item">
+
+<h3>📞 Phone</h3>
+
+<p>+91 98765 43210</p>
+
+</div>
+
+
+<div class="contact-item">
+
+<h3>📧 Email</h3>
+
+<p>hello@brewandbeans.com</p>
+
+</div>
+
+
+<div class="contact-item">
+
+<h3>🕐 Opening Hours</h3>
+
+<p>Monday - Sunday: 8:00 AM - 10:00 PM</p>
+
+</div>
+
+</div>
+
+
+<div class="contact-form">
+
+<h2>Send Us A Message</h2>
+
+<br>
+
+<input
+type="text"
+id="contactName"
+placeholder="Your Name">
+
+<input
+type="email"
+id="contactEmail"
+placeholder="Your Email">
+
+<textarea
+id="contactMessage"
+placeholder="Your Message"></textarea>
+
+<button onclick="sendMessage()">
+
+SEND MESSAGE
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     CART PANEL
+================================= -->
+
+<div class="cart-panel" id="cartPanel">
+
+<div class="cart-header">
+
+<h2>🛒 Your Order</h2>
+
+<button onclick="closeCart()">✕</button>
+
+</div>
+
+<div id="cartItems"></div>
+
+<div class="cart-total">
+
+<h2>
+Total: ₹<span id="cartTotal">0</span>
+</h2>
+
+<button
+class="checkout-btn"
+onclick="placeOrder()">
+
+PLACE ORDER
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ==============================
+     FOOTER
+================================= -->
+
+<footer>
+
+<div class="footer-grid">
+
+
+<div class="footer-col">
+
+<h2>☕ Brew & Beans</h2>
+
+<p>
+Freshly brewed coffee, delicious food
+and beautiful moments. Come in,
+sit back and enjoy the Brew & Beans experience.
+</p>
+
+<div class="social">
+
+<span>📸</span>
+<span>📘</span>
+<span>▶️</span>
+<span>💬</span>
+
+</div>
+
+</div>
+
+
+<div class="footer-col">
+
+<h3>QUICK LINKS</h3>
+
+<a href="#home">Home</a>
+
+<a href="#menu">Menu</a>
+
+<a href="#about">About Us</a>
+
+<a href="#gallery">Gallery</a>
+
+<a href="#reviews">Reviews</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h3>OUR MENU</h3>
+
+<a href="#menu">Coffee</a>
+
+<a href="#menu">Food</a>
+
+<a href="#menu">Desserts</a>
+
+<a href="#menu">Snacks</a>
+
+<a href="#reservation">Book A Table</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h3>CONTACT</h3>
+
+<p>📍 Mumbai, Maharashtra</p>
+
+<p>📞 +91 98765 43210</p>
+
+<p>📧 hello@brewandbeans.com</p>
+
+<p>🕐 8 AM - 10 PM</p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Brew & Beans Café ☕ | All Rights Reserved.
+<br><br>
+Made with ❤️ & Coffee
+
+</div>
+
+</footer>
+
+
+<!-- ==============================
+     TOAST
+================================= -->
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+/* ==============================
+   MENU DATA
+================================= */
+
+const menu=[
+
+{
+id:1,
+name:"Cappuccino",
+category:"Coffee",
+price:149,
+image:"https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=700&q=80",
+description:"Rich espresso topped with smooth steamed milk foam."
+},
+
+{
+id:2,
+name:"Classic Latte",
+category:"Coffee",
+price:159,
+image:"https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=700&q=80",
+description:"Smooth espresso blended with creamy steamed milk."
+},
+
+{
+id:3,
+name:"Cold Coffee",
+category:"Coffee",
+price:129,
+image:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80",
+description:"Chilled creamy coffee perfect for a refreshing break."
+},
+
+{
+id:4,
+name:"Mocha",
+category:"Coffee",
+price:179,
+image:"https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=700&q=80",
+description:"Chocolate and espresso combined into one delicious cup."
+},
+
+{
+id:5,
+name:"Cheese Pizza",
+category:"Food",
+price:249,
+image:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80",
+description:"Crispy base topped with melted cheese and fresh herbs."
+},
+
+{
+id:6,
+name:"Veg Sandwich",
+category:"Food",
+price:159,
+image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=80",
+description:"Fresh vegetables and creamy dressing in toasted bread."
+},
+
+{
+id:7,
+name:"Pasta Alfredo",
+category:"Food",
+price:229,
+image:"https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80",
+description:"Creamy Alfredo pasta with herbs and parmesan."
+},
+
+{
+id:8,
+name:"Chocolate Cake",
+category:"Dessert",
+price:179,
+image:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80",
+description:"Moist chocolate cake covered with rich chocolate cream."
+},
+
+{
+id:9,
+name:"Cheesecake",
+category:"Dessert",
+price:199,
+image:"https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80",
+description:"Creamy classic cheesecake with a buttery crust."
+},
+
+{
+id:10,
+name:"Brownie",
+category:"Dessert",
+price:129,
+image:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80",
+description:"Warm chocolate brownie with a rich fudgy centre."
+},
+
+{
+id:11,
+name:"Butter Croissant",
+category:"Snacks",
+price:99,
+image:"https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80",
+description:"Fresh buttery croissant with crispy golden layers."
+},
+
+{
+id:12,
+name:"Garlic Bread",
+category:"Snacks",
+price:119,
+image:"https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?auto=format&fit=crop&w=700&q=80",
+description:"Crispy garlic bread topped with herbs and butter."
+}
+
+];
+
+
+/* ==============================
+   CART
+================================= */
+
+let cart=
+JSON.parse(localStorage.getItem("cafeCart")) || [];
+
+
+/* ==============================
+   DISPLAY MENU
+================================= */
+
+function displayMenu(category="All"){
+
+    let list=
+    category==="All"
+    ? menu
+    : menu.filter(item=>item.category===category);
+
+
+    let html="";
+
+
+    list.forEach(item=>{
+
+        html+=`
+
+        <div class="menu-card">
+
+            <div class="menu-image">
+
+                <span class="popular">
+                POPULAR
+                </span>
+
+                <img src="${item.image}">
+
+            </div>
+
+            <div class="menu-info">
+
+                <h3>${item.name}</h3>
+
+                <p>
+                ${item.description}
+                </p>
+
+                <div class="menu-bottom">
+
+                    <div class="menu-price">
+                    ₹${item.price}
+                    </div>
+
+                    <button
+                    class="order-btn"
+                    onclick="addToCart(${item.id})">
+
+                    + Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+
+    document.getElementById("menuGrid").innerHTML=html;
+
+}
+
+
+/* ==============================
+   FILTER MENU
+================================= */
+
+function filterMenu(category){
+
+    displayMenu(category);
+
+    document.getElementById("menu")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ==============================
+   ADD TO CART
+================================= */
+
+function addToCart(id){
+
+    let existing=
+    cart.find(item=>item.id===id);
+
+
+    if(existing){
+
+        existing.quantity++;
+
+    }else{
+
+        cart.push({
+            id:id,
+            quantity:1
+        });
+
+    }
+
+
+    saveCart();
+
+    openCart();
+
+    showToast("☕ Added to your order!");
+
+}
+
+
+/* ==============================
+   SAVE CART
+================================= */
+
+function saveCart(){
+
+    localStorage.setItem(
+        "cafeCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* ==============================
+   UPDATE CART
+================================= */
+
+function updateCart(){
+
+    let container=
+    document.getElementById("cartItems");
+
+    let total=0;
+
+
+    if(cart.length===0){
+
+        container.innerHTML=`
+
+        <div style="
+        text-align:center;
+        padding:50px 10px;
+        color:#80695d;">
+
+        <h3>Your order is empty ☕</h3>
+
+        <p style="margin-top:10px;">
+        Add something delicious!
+        </p>
+
+        </div>
+
+        `;
+
+        document.getElementById("cartTotal")
+        .innerText="0";
+
+        return;
+
+    }
+
+
+    let html="";
+
+
+    cart.forEach((item,index)=>{
+
+        let product=
+        menu.find(x=>x.id===item.id);
+
+
+        let itemTotal=
+        product.price*item.quantity;
+
+
+        total+=itemTotal;
+
+
+        html+=`
+
+        <div class="cart-item">
+
+            <img src="${product.image}">
+
+            <div class="cart-info">
+
+                <h4>
+                ${product.name}
+                </h4>
+
+                <p>
+                ₹${product.price} × ${item.quantity}
+                </p>
+
+            </div>
+
+            <button
+            class="cart-remove"
+            onclick="removeItem(${index})">
+
+            ✕
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+
+    container.innerHTML=html;
+
+    document.getElementById("cartTotal")
+    .innerText=total;
+
+}
+
+
+/* ==============================
+   REMOVE ITEM
+================================= */
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    saveCart();
+
+    updateCart();
+
+    showToast("Item removed from order");
+
+}
+
+
+/* ==============================
+   CART OPEN/CLOSE
+================================= */
+
+function openCart(){
+
+    document.getElementById("cartPanel")
+    .classList.add("open");
+
+    updateCart();
+
+}
+
+
+function closeCart(){
+
+    document.getElementById("cartPanel")
+    .classList.remove("open");
+
+}
+
+
+/* ==============================
+   PLACE ORDER
+================================= */
+
+function placeOrder(){
+
+    if(cart.length===0){
+
+        showToast("Please add something first ☕");
+
+        return;
+
+    }
+
+
+    let name=
+    prompt("Please enter your name:");
+
+
+    if(!name){
+        return;
+    }
+
+
+    alert(
+        "🎉 ORDER CONFIRMED!\n\n"+
+        "Thank you, "+name+" ❤️\n\n"+
+        "Your delicious order from Brew & Beans "+
+        "is being prepared!\n\n"+
+        "☕ Enjoy your coffee!"
+    );
+
+
+    cart=[];
+
+    saveCart();
+
+    updateCart();
+
+    closeCart();
+
+}
+
+
+/* ==============================
+   TABLE BOOKING
+================================= */
+
+function bookTable(){
+
+    let name=
+    document.getElementById("bookingName").value.trim();
+
+    let phone=
+    document.getElementById("bookingPhone").value.trim();
+
+    let date=
+    document.getElementById("bookingDate").value;
+
+    let time=
+    document.getElementById("bookingTime").value;
+
+    let guests=
+    document.getElementById("bookingGuests").value;
+
+
+    if(
+        !name ||
+        !phone ||
+        !date ||
+        !time ||
+        !guests
+    ){
+
+        showToast("Please fill all booking details");
+
+        return;
+
+    }
+
+
+    alert(
+        "☕ TABLE RESERVED!\n\n"+
+        "Name: "+name+
+        "\nDate: "+date+
+        "\nTime: "+time+
+        "\nGuests: "+guests+
+        "\n\nWe look forward to seeing you! ❤️"
+    );
+
+
+    document.getElementById("bookingName").value="";
+    document.getElementById("bookingPhone").value="";
+    document.getElementById("bookingDate").value="";
+    document.getElementById("bookingTime").value="";
+    document.getElementById("bookingGuests").value="";
+
+}
+
+
+/* ==============================
+   CONTACT MESSAGE
+================================= */
+
+function sendMessage(){
+
+    let name=
+    document.getElementById("contactName").value.trim();
+
+    let email=
+    document.getElementById("contactEmail").value.trim();
+
+    let message=
+    document.getElementById("contactMessage").value.trim();
+
+
+    if(!name || !email || !message){
+
+        showToast("Please fill all fields");
+
+        return;
+
+    }
+
+
+    alert(
+        "💌 Message Sent!\n\n"+
+        "Thank you, "+name+
+        "!\nWe will get back to you soon."
+    );
+
+
+    document.getElementById("contactName").value="";
+    document.getElementById("contactEmail").value="";
+    document.getElementById("contactMessage").value="";
+
+}
+
+
+/* ==============================
+   TOAST
+================================= */
+
+function showToast(message){
+
+    let toast=
+    document.getElementById("toast");
+
+    toast.innerText=message;
+
+    toast.style.display="block";
+
+
+    setTimeout(()=>{
+
+        toast.style.display="none";
+
+    },2200);
+
+}
+
+
+/* ==============================
+   START WEBSITE
+================================= */
+
+displayMenu();
+
+updateCart();
+
+</script>
+
+</body>
+</html>
+
